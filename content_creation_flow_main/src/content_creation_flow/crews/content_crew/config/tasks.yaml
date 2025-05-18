@@ -1,0 +1,99 @@
+analyze_content:
+  description: >
+    Analyze the provided event, event transcript, user provided opinions and extract key insights, themes, and quotable moments.
+            
+    If highlighted points are provided, focus on those too. If no highlight, then focus on the entire event transcript.
+    
+    Consider the user's persona (e.g., organizer, attendee, speaker) when determining what content would be most relevant.
+    
+    event_name: {event_name}
+    transcript: {transcript}
+
+    user_persona: {user_persona}
+    highlighted_points: {highlighted_points}
+    user_opinion: {user_opinion}
+    target_platform: {social_media_platform}
+    
+    Your analysis can include the relevant information that is relevant for the content on this social media platform, like:
+    - key takeaways from the event
+    - quotable moments that would work well on social media
+    - The overall theme or message of the event
+    - Any statistics or data points that would be engaging
+    
+    Return your analysis in a structured format that can be used by the Content Creator.
+  expected_output: >
+      A structured analysis of the event transcript with key takeaways, quotable moments, 
+      overall theme, and engaging data points, tailored to the user's persona..
+  agent: content_analyzer
+
+create_content:
+  description: >
+    Using the analysis provided, create engaging social media content for the specified platform.
+
+    Consider:
+    - The target social media platform's ({social_media_platform}) best practices (character limits, hashtag usage, etc.)
+    - The user's persona ({user_persona}) and how they would naturally communicate
+    - Any user opinion provided to incorporate their voice
+    - The event name for proper attribution ({event_name})
+
+    
+    If the platform is:
+    - Twitter/X: Create a thread of 3-5 tweets with appropriate hashtags
+    - LinkedIn: Create a professional post with proper formatting
+    - Instagram: Create caption text with appropriate hashtags
+    - Facebook: Create a conversational post that encourages engagement
+
+    If the user has provided their opinion, or highlights, make sure to incorporate it authentically.
+
+    Return the draft content that the user can post on the social media platform.
+    Assume that the generated content is only text. 
+    Be crisp, concise, and to the point.
+  expected_output: >
+    Draft social media content tailored to the specified platform, incorporating the user's 
+    persona, any provided opinion, and key insights from the event analysis.
+  agent: content_creator
+
+
+# analyze_content:
+#   description: >
+#     Analyze the provided event transcript  and extract key insights, themes, and quotable moments.
+            
+#     If highlighted points are provided, focus on those specifically.
+    
+#     Consider the user's persona (e.g., organizer, attendee, speaker) when determining what content would be most relevant.
+    
+#     Your analysis should include:
+#     1. 3-5 key takeaways from the event
+#     2. 2-3 quotable moments that would work well on social media
+#     3. The overall theme or message of the event
+#     4. Any statistics or data points that would be engaging
+    
+#     Return your analysis in a structured format that can be used by the Content Creator.
+#   expected_output: >
+#       A structured analysis of the event transcript with key takeaways, quotable moments, 
+#       overall theme, and engaging data points, tailored to the user's persona..
+#   agent: content_analyzer
+
+# create_content:
+#   description: >
+#     Using the analysis provided, create engaging social media content for the specified platform.
+
+#     Consider:
+#     - The target social media platform's best practices (character limits, hashtag usage, etc.)
+#     - The user's persona and how they would naturally communicate
+#     - Any user opinion provided to incorporate their voice
+#     - The event name for proper attribution
+
+#     If the platform is:
+#     - Twitter/X: Create a thread of 3-5 tweets with appropriate hashtags
+#     - LinkedIn: Create a professional post with proper formatting
+#     - Instagram: Create caption text with appropriate hashtags
+#     - Facebook: Create a conversational post that encourages engagement
+
+#     If the user has provided their opinion, make sure to incorporate it authentically.
+
+#     Return the draft content ready for optimization.
+#   expected_output: >
+#     Draft social media content tailored to the specified platform, incorporating the user's 
+#     persona, any provided opinion, and key insights from the event analysis.
+#   agent: content_creator
