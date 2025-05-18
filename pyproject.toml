@@ -6,12 +6,13 @@ authors = [{ name = "Your Name", email = "you@example.com" }]
 requires-python = ">=3.10,<3.13"
 dependencies = [
     "crewai[tools]>=0.120.1,<1.0.0",
+    "flask>=3.0.0",
+    "flask-cors>=4.0.0",
 ]
 
 [project.scripts]
-kickoff = "content_creation_flow.main:kickoff"
-run_crew = "content_creation_flow.main:kickoff"
-plot = "content_creation_flow.main:plot"
+kickoff = "content_creation_flow.flow:kickoff"
+run_crew = "content_creation_flow.main:run"
 
 [build-system]
 requires = ["hatchling"]
